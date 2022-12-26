@@ -10001,3 +10001,5 @@ zus
 
 apple
 salam
+about       
+absolutely  

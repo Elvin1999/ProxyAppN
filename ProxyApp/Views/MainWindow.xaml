@@ -22,7 +22,18 @@
             </TextBlock>
             <StackPanel Grid.Row="1" Orientation="Horizontal" >
                 <TextBox Text="{Binding SearchText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="240"  FontSize="26">
-                  
+                   
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="TextChanged">
+                                <i:InvokeCommandAction Command="{Binding ChangeTextCommand}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="{Binding UpCommand}" Key="Up"></KeyBinding>
+                        <KeyBinding Command="{Binding DownCommand}" Key="Down"></KeyBinding>
+                        
+                    </TextBox.InputBindings>
                 </TextBox>
                 <Button Command="{Binding SubmitCommand}" Content="Submit" FontSize="16" FontWeight="ExtraBlack" ></Button>
             </StackPanel>
