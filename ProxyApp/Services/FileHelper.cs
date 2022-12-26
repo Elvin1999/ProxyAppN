@@ -29,5 +29,13 @@ namespace ProxyApp.Services
             }
             return null;
         }
+
+        public static void AppendTextToFile(string text)
+        {
+            if (File.Exists(FileName))
+            {
+                File.AppendAllText(FileName, $"{text}\n");
+            }
+        }
     }
 }

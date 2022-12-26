@@ -3,9 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ProxyApp"
+        xmlns:local="clr-namespace:ProxyApp" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="300">
+        Title="MainWindow" Height="450" Width="320">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -14,21 +14,21 @@
 
         <Grid Grid.Row="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="8*"/>
+                <RowDefinition Height="6*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" TextWrapping="Wrap" FontSize="26">
+            <TextBlock Text="{Binding CurrentText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" TextWrapping="Wrap" FontSize="26">
                 
             </TextBlock>
             <StackPanel Grid.Row="1" Orientation="Horizontal" >
-                <TextBox Width="240"  FontSize="26">
-                
-            </TextBox>
-                <Button Content="Submit" FontSize="16" FontWeight="ExtraBlack" ></Button>
+                <TextBox Text="{Binding SearchText,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Width="240"  FontSize="26">
+                  
+                </TextBox>
+                <Button Command="{Binding SubmitCommand}" Content="Submit" FontSize="16" FontWeight="ExtraBlack" ></Button>
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
-            <ListBox Background="Aqua" FontSize="30" HorizontalContentAlignment="Center">
+            <ListBox ItemsSource="{Binding AllTexts,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Background="Aqua" FontSize="30" HorizontalContentAlignment="Center">
                 
             </ListBox>
         </Grid>

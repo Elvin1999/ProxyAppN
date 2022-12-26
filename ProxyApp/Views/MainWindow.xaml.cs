@@ -1,4 +1,5 @@
 ﻿using ProxyApp.Services;
+using ProxyApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,7 +25,8 @@ namespace ProxyApp
         public MainWindow()
         {
             InitializeComponent();
-            
+            var viewModel = new HomeViewModel();
+            this.DataContext = viewModel;
         }
     }
 }
