@@ -82,7 +82,6 @@ namespace ProxyApp.ViewModels
             SubmitCommand = new RelayCommand((o) =>
             {
                 CurrentText += $" {SearchText}";
-                FileHelper.AppendTextToFile(SearchText);
                 SearchText = String.Empty;
             });
 

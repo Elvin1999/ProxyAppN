@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProxyApp.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -50,6 +51,7 @@ namespace ProxyApp.Pattern
             {
                 var fromGlobal = _globalTextSearcher.SearchByWord(text);
                 LocalData.AddRange(fromGlobal);
+                FileHelper.AppendTextToFile(text);
                 return fromGlobal;
             }
         }
